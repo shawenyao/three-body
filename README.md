@@ -1,5 +1,5 @@
 # Three-Body Problem: A Raspberry Pi Pico Demo
-![demo](imgae.png)
+![demo]([imgae.png](https://shawenyao.github.io/Photos/Three-Body/image.png)
 
 ## Requirements
 * [Raspberry Pi Pico](https://www.raspberrypi.com/products/raspberry-pi-pico/) x 1
