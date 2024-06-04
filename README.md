@@ -16,5 +16,5 @@
 
 ## References
 * Problem overview by [Wikipedia](https://en.wikipedia.org/wiki/Three-body_problem)
-* Python solution by [Benjamin Badge]([https://github.com/peterhinch/micropython-font-to-py](https://blbadger.github.io/3-body-problem.html)
+* Python solution by [Benjamin Badge](https://blbadger.github.io/3-body-problem.html)
 * Initial conditions based on [Ricky Reusser](https://observablehq.com/@rreusser/periodic-planar-three-body-orbits)
