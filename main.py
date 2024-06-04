@@ -31,22 +31,24 @@ i2c = I2C(0, sda=Pin(sda_pin), scl=Pin(scl_pin))
 oled = SSD1306_I2C(128, 64, i2c)
 led = Pin("LED", Pin.OUT)
 
-# ===== helper functions =====
-def flash():
-    """
-    flash the screen
-    """
+
+# clear the screen
+def clear():
     oled.fill(0)
     oled.show()
 
 
+# flash the led light
+def flash():
+    led.on()
+    sleep(0.1)
+    led.off()
+    sleep(1)
+
+
+# calculate the derivatives of x, y, and z
+# given 3 object and their locations according to Newton's laws
 def accelerations(p1, p2, p3):
-    """
-    A function to calculate the derivatives of x, y, and z
-    given 3 object and their locations according to Newton's laws
-
-    """
-
     dv1 = -G * m_2 * (p1 - p2) / (
         np.sqrt((p1[0] - p2[0]) ** 2 + (p1[1] - p2[1]) ** 2) ** 3
     ) - G * m_3 * (p1 - p3) / (
@@ -68,17 +70,13 @@ def accelerations(p1, p2, p3):
     return dv1, dv2, dv3
 
 
+# scale the coordinate system to fit the display
 def normalize_position(x, y):
-    """
-    scale the coordinate system to fit the display
-    """
     return round(x / 2.4 * WIDTH + WIDTH / 2 - 1), round(y / 1.6 * HEIGHT + HEIGHT / 2)
 
 
+# draw 2x2 a square
 def draw_square(x, y):
-    """
-    draw 2x2 a square
-    """
     x, y = normalize_position(x, y)
 
     # draw only if not out of display bounds
@@ -90,10 +88,8 @@ def draw_square(x, y):
         oled.hline(x - 2, y + 2, 5, 1)
 
 
+# draw a 2x2 circle
 def draw_circle(x, y):
-    """
-    draw a 2x2 circle
-    """
     x, y = normalize_position(x, y)
 
     # draw only if not out of display bounds
@@ -105,10 +101,8 @@ def draw_circle(x, y):
         oled.hline(x - 1, y + 2, 3, 1)
 
 
+# draw a 2x2 triangle
 def draw_triangle(x, y):
-    """
-    draw a 2x2 triangle
-    """
     x, y = normalize_position(x, y)
 
     # draw only if not out of display bounds
@@ -120,10 +114,8 @@ def draw_triangle(x, y):
         oled.hline(x - 2, y + 2, 5, 1)
 
 
+# draw a 1x1 pixel
 def draw_pixel(x, y):
-    """
-    draw a 1x1 pixel
-    """
     x, y = normalize_position(x, y)
 
     # draw only if not out of display bounds
@@ -131,10 +123,8 @@ def draw_pixel(x, y):
         oled.pixel(x, y, 1)
 
 
+# draw trajectory
 def draw_tail(tail):
-    """
-    draw trajectory
-    """
     for i in to_plot:
         array = tail.T[i]
         if array[0] != -99999:
@@ -143,10 +133,7 @@ def draw_tail(tail):
 
 if __name__ == "__main__":
     # flash led to indicate power on
-    led.on()
-    sleep(0.1)
-    led.off()
-    sleep(1)
+    flash()
 
     # simulation starts
     # initial positions
@@ -168,7 +155,7 @@ if __name__ == "__main__":
 
     while True:
         # draw current position
-        flash()
+        clear()
         draw_square(p1[0], p1[1])
         draw_circle(p2[0], p2[1])
         draw_triangle(p3[0], p3[1])
