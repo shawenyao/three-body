@@ -1,6 +1,5 @@
 from machine import Pin, I2C
 from ssd1306 import SSD1306_I2C
-import framebuf
 from time import sleep
 from ulab import numpy as np
 
