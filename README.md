@@ -1,4 +1,5 @@
 # Three-Body Problem: A Raspberry Pi Pico Demo
+![demo](imgae.png)
 
 ## Requirements
 * [Raspberry Pi Pico](https://www.raspberrypi.com/products/raspberry-pi-pico/) x 1
