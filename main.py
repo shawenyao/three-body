@@ -124,9 +124,9 @@ def draw_pixel(x, y):
 
 
 # draw trajectory
-def draw_tail(tail):
+def draw_tail(path):
     for i in to_plot:
-        array = tail.T[i]
+        array = path.T[i]
         if array[0] != -99999:
             draw_pixel(array[0], array[1])
 
@@ -147,7 +147,7 @@ if __name__ == "__main__":
     )
 
     # placeholder for trajectories
-    tail1, tail2, tail3 = (
+    path1, path2, path3 = (
         np.full([2, max(to_plot) + 1], -99999),
         np.full([2, max(to_plot) + 1], -99999),
         np.full([2, max(to_plot) + 1], -99999),
@@ -159,9 +159,9 @@ if __name__ == "__main__":
         draw_square(p1[0], p1[1])
         draw_circle(p2[0], p2[1])
         draw_triangle(p3[0], p3[1])
-        draw_tail(tail1)
-        draw_tail(tail2)
-        draw_tail(tail3)
+        draw_tail(path1)
+        draw_tail(path2)
+        draw_tail(path3)
         oled.show()
 
         # calculate derivatives
@@ -178,9 +178,9 @@ if __name__ == "__main__":
         p3 = p3 + v3 * dt
 
         # remember the current positions to plot the trajectories
-        tail1 = np.roll(tail1, 1)
-        tail2 = np.roll(tail2, 1)
-        tail3 = np.roll(tail3, 1)
-        tail1[:, 0] = p1
-        tail2[:, 0] = p2
-        tail3[:, 0] = p3
+        path1 = np.roll(path1, 1)
+        path2 = np.roll(path2, 1)
+        path3 = np.roll(path3, 1)
+        path1[:, 0] = p1
+        path2[:, 0] = p2
+        path3[:, 0] = p3
