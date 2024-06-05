@@ -12,7 +12,7 @@ m_1 = 1
 m_2 = 1
 m_3 = 1
 
-dt = 0.05
+dt = 0.04
 
 # display size
 WIDTH = 128
