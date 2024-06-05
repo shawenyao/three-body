@@ -1,6 +1,8 @@
 # Three-Body Problem: A Raspberry Pi Pico Demo
 ![demo](https://shawenyao.github.io/Photos/Three-Body/image.png)
 
+Full story [here](https://www.shawenyao.com/Three-Body-Problem/).
+
 ## Requirements
 * [Raspberry Pi Pico](https://www.raspberrypi.com/products/raspberry-pi-pico/) x 1
 * Breadboard x 1
