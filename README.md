@@ -12,7 +12,7 @@ Full story [here](https://www.shawenyao.com/Three-Body-Problem/).
 * Power adapter or power bank x 1
 
 ## Instructions
-* Connect the OLED display to the Raspberry Pi Pico W on a breadboard
+* Connect the OLED display to the Raspberry Pi Pico on a breadboard
 * Download and flash the [MicroPython firmware](https://github.com/v923z/micropython-builder/releases)
 * Copy `*.py` in the repository onto the Raspberry Pi Pico
 * Connect the Raspberry Pi Pico to a power source
